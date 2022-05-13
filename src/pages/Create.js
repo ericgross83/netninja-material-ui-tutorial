@@ -1,6 +1,6 @@
 import React from 'react'
-import {Button, ButtonGroup, Container, Typography} from "@mui/material";
-import {logDOM} from "@testing-library/react";
+import {Button, Container, Typography} from "@mui/material";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export default function Create() {
     return (
@@ -17,11 +17,21 @@ export default function Create() {
             <Button
                 color={"secondary"}
                 variant={"contained"}
-                onClick={() => console.log('you clicked me')}>
+                onClick={() => console.log('you clicked me')}
+                endIcon={<KeyboardArrowRightIcon/>}
+            >
                 Submit
             </Button>
 
 
+            {/*Icons*/}
+            <br/>
+            {/*<AcUnitOutlinedIcon/>*/}
+            {/*<AcUnitOutlinedIcon color={"secondary"} fontSize={"large"}/>*/}
+            {/*<AcUnitOutlinedIcon color={"secondary"} fontSize={"small"}/>*/}
+            {/*<AcUnitOutlinedIcon color={"action"} fontSize={"small"}/>*/}
+            {/*<AcUnitOutlinedIcon color={"error"} fontSize={"small"}/>*/}
+            {/*<AcUnitOutlinedIcon color={"disabled"} fontSize={"small"}/>*/}
         </Container>
     )
 }
