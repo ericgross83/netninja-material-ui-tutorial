@@ -6,17 +6,6 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles({
-  btn: {
-    fontSize: 60,
-    backgroundColor: 'violet',
-    '&:hover': {
-      background: 'blue'
-    },
-  },
-  title: {
-    textDecoration: 'underline',
-    marginBottom: 20,
-  }
 })
 
 export default function Create() {
@@ -38,7 +27,7 @@ export default function Create() {
         className={classes.btn}
         onClick={() => console.log('you clicked me')}
         type="submit" 
-        color="secondary" 
+        color="secondary"
         variant="contained"
         endIcon={<KeyboardArrowRightIcon />}>
         Submit
