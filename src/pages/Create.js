@@ -1,17 +1,27 @@
 import React from 'react'
-import {Typography} from "@mui/material";
+import {Button, ButtonGroup, Container, Typography} from "@mui/material";
+import {logDOM} from "@testing-library/react";
 
 export default function Create() {
     return (
-        <div>
+        <Container>
             <Typography
-            variant={"h6"}
-            component={"h2"}
-            gutterBottom
-            color={"textSecondary"}
+                variant={"h6"}
+                component={"h2"}
+                gutterBottom
+                color={"textSecondary"}
             >
                 Create a New Note
             </Typography>
-        </div>
+
+            <Button
+                color={"secondary"}
+                variant={"contained"}
+                onClick={() => console.log('you clicked me')}>
+                Submit
+            </Button>
+
+
+        </Container>
     )
 }
