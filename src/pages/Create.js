@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 import {FormControl, FormControlLabel, FormLabel, makeStyles, Radio, RadioGroup, TextField} from '@material-ui/core'
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles({
     field: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles({
 
 export default function Create() {
     const classes = useStyles()
+    const history = useHistory()
 
     const [title, setTitle] = useState('')
     const [details, setDetails] = useState('')
@@ -33,8 +35,12 @@ export default function Create() {
         }
 
         e.preventDefault()
-        if (title && details ) {
-            console.log(title, details, category)
+        if (title && details) {
+            fetch('http://localhost:8000/notes', {
+                method: 'POST',
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify({title, details, category})
+            }).then(() => history.push('/'))
         }
     }
 
@@ -74,13 +80,13 @@ export default function Create() {
             />
 
             <FormControl className={classes.field}>
-                <FormLabel>Stuff</FormLabel>
-            <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)}>
-                <FormControlLabel control={<Radio/>} label={"Money"} value={'money'}/>
-                <FormControlLabel control={<Radio/>} label={"Todos"} value={'todos'}/>
-                <FormControlLabel control={<Radio/>} label={"Reminders"} value={'reminders'}/>
-                <FormControlLabel control={<Radio/>} label={"Work"} value={'work'}/>
-            </RadioGroup>
+                <FormLabel>Note Category</FormLabel>
+                <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)}>
+                    <FormControlLabel control={<Radio/>} label={"Money"} value={'money'}/>
+                    <FormControlLabel control={<Radio/>} label={"Todos"} value={'todos'}/>
+                    <FormControlLabel control={<Radio/>} label={"Reminders"} value={'reminders'}/>
+                    <FormControlLabel control={<Radio/>} label={"Work"} value={'work'}/>
+                </RadioGroup>
             </FormControl>
 
             <Button
