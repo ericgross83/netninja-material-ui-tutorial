@@ -3,6 +3,7 @@ import Notes from './pages/Notes'
 import Create from './pages/Create'
 import {createMuiTheme, ThemeProvider} from "@material-ui/core";
 import {purple} from "@material-ui/core/colors";
+import Layout from "./components/Layout";
 
 
 const theme = createMuiTheme({
@@ -10,10 +11,10 @@ const theme = createMuiTheme({
         primary: {
             main: '#fefefe'
         },
-        secondary : purple
+        secondary: purple
 
     },
-    typography : {
+    typography: {
         fontFamily: 'Quicksand',
         fontWeightLight: 400,
         fontWeightRegular: 500,
@@ -26,14 +27,16 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Router>
-                <Switch>
-                    <Route exact path="/">
-                        <Notes/>
-                    </Route>
-                    <Route path="/create">
-                        <Create/>
-                    </Route>
-                </Switch>
+                <Layout>
+                    <Switch>
+                        <Route exact path="/">
+                            <Notes/>
+                        </Route>
+                        <Route path="/create">
+                            <Create/>
+                        </Route>
+                    </Switch>
+                </Layout>
             </Router>
         </ThemeProvider>
     );
