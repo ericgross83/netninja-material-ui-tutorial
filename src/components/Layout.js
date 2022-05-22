@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    AppBar,
+    AppBar, Avatar,
     Drawer,
     List,
     ListItem,
@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme) => {
         toolbar: theme.mixins.toolbar,
         date: {
             flexGrow: 1
+        },
+        avatar: {
+            marginLeft: theme.spacing(2)
         }
     }
 })
@@ -87,6 +90,7 @@ export default function Layout({children}) {
                     <Typography>
                         Mario
                     </Typography>
+                    <Avatar src={'/mario-av.png'} className={classes.avatar}/>
                 </Toolbar>
             </AppBar>
 
