@@ -21,7 +21,6 @@ export default function Notes() {
         default: 3,
         1100: 2,
         700: 1,
-
     }
 
     return (
@@ -35,7 +34,6 @@ export default function Notes() {
                     <div item key={note.id}>
                         <NoteCard note={note} handleDelete={handleDelete}/>
                     </div>
-
                 ))}
             </Masonry>
         </Container>)
